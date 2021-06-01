@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Docker Lab</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div id="placeHolder" class="info hidden">
+        <span class="info_command">Please execute a command:</span>
+
+        <div class="info_code tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" class="copy_icon" onclick="copyToClipboard()" height="24px"
+                viewBox="0 0 24 24" width="24px" fill="#fff">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+            </svg>
+            <span class="tooltiptext">Copy to clipboard<span></span></span>
+            <code>docker run -d -p 8082:8082 -l playpit-manager -v /var/run/docker.sock:/var/run/docker.sock sbeliakou/playpit-manager</code>
+
+        </div>
+
+    </div>
+    <iframe id="iframe" class="hidden" frameborder="0" width="100%"></iframe>
+    <script defer src="/js/index.js"></script>
+    <script>
+        let text = 'docker run -d -p 8082:8082 --rm -v /var/run/docker.sock:/var/run/docker.sock sbeliakou/playpit-manager'
+        let tooltip = document.querySelector('.tooltiptext')
+        function copyToClipboard() {
+            navigator.clipboard.writeText(text);
+            tooltip.innerHTML = 'Copied'
+            setTimeout(()=>{tooltip.innerHTML = 'Copy to clipboard'}, 2000)
+        }
+    </script>
+</body>
+
+</html>
