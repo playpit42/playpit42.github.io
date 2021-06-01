@@ -4,8 +4,8 @@ class FrontNavigator {
     placeHolder = document.getElementById("placeHolder");
     isPlayPitRunning = false;
     isManagerRunning = false
-    playGroundUrl = "http://localhost:8081";
-    managerUrl = "http://localhost:8082";
+    playGroundUrl = "http://lab.playpit.net:8081";
+    managerUrl = "http://lab.playpit.net:8082";
     opts = {
         method: 'GET',
         headers: {}
